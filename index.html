@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Finance Calculator Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Finance Calculator Hub</h1>
+
+<div class="container">
+
+<div class="card">
+
+<h2>EMI Calculator</h2>
+
+<input type="number" id="loan" placeholder="Loan Amount">
+<input type="number" id="rate" placeholder="Interest Rate">
+<input type="number" id="months" placeholder="Months">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<p id="result"></p>
+
+</div>
+
+
+<div class="card">
+
+<h2>SIP Calculator</h2>
+
+<input type="number" id="sipAmount" placeholder="Monthly Investment">
+<input type="number" id="sipRate" placeholder="Expected Return (%)">
+<input type="number" id="sipYears" placeholder="Years">
+
+<button onclick="calculateSIP()">Calculate SIP</button>
+
+<p id="sipResult"></p>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
