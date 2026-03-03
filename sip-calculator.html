@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>SIP Calculator India 2026</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIP Calculator India 2026</title>
 
 <style>
 body{
 margin:0;
 font-family:'Segoe UI', Arial, sans-serif;
-background:#f8fafc;
-color:#111827;
+background:#f3f4f6;
 }
 
 header{
 background:white;
-padding:20px;
-text-align:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-font-size:22px;
+padding:15px 25px;
+box-shadow:0 2px 6px rgba(0,0,0,0.05);
 font-weight:600;
 }
 
 .container{
-max-width:500px;
+max-width:600px;
 margin:60px auto;
 background:white;
 padding:35px;
 border-radius:14px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
+text-align:center;
 }
 
 h2{
-text-align:center;
+margin-bottom:10px;
+}
+
+.sub{
+color:#6b7280;
+font-size:14px;
 margin-bottom:25px;
 }
 
@@ -61,26 +65,40 @@ button:hover{
 background:#1d4ed8;
 }
 
-.result{
-margin-top:25px;
-background:#f1f5f9;
+.result-box{
+margin-top:20px;
+background:#f9fafb;
 padding:15px;
 border-radius:10px;
+text-align:left;
 font-size:15px;
 }
 
-.result p{
+.result-box div{
+display:flex;
+justify-content:space-between;
 margin:8px 0;
 }
 
-.back{
-text-align:center;
-margin-top:20px;
+.section{
+max-width:900px;
+margin:60px auto;
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
-.back a{
-color:#2563eb;
-text-decoration:none;
+.section h3{
+margin-top:0;
+}
+
+footer{
+text-align:center;
+padding:25px;
+color:#6b7280;
+font-size:14px;
+margin-top:40px;
 }
 </style>
 </head>
@@ -92,6 +110,7 @@ text-decoration:none;
 <div class="container">
 
 <h2>SIP Calculator</h2>
+<div class="sub">Calculate your investment growth instantly.</div>
 
 <input type="number" id="monthly" placeholder="Monthly Investment (₹)">
 <input type="number" id="rate" placeholder="Expected Annual Return (%)">
@@ -99,17 +118,52 @@ text-decoration:none;
 
 <button onclick="calculateSIP()">Calculate SIP</button>
 
-<div class="result" id="output" style="display:none;">
-<p><strong>Total Investment:</strong> ₹ <span id="invested"></span></p>
-<p><strong>Estimated Returns:</strong> ₹ <span id="returns"></span></p>
-<p><strong>Total Value:</strong> ₹ <span id="total"></span></p>
+<div class="result-box" id="result" style="display:none;">
+<div><span>Total Investment</span><strong>₹ <span id="invested"></span></strong></div>
+<div><span>Estimated Returns</span><strong>₹ <span id="returns"></span></strong></div>
+<div><span>Total Value</span><strong>₹ <span id="total"></span></strong></div>
 </div>
 
-<div class="back">
-<a href="index.html">← Back to Home</a>
+<div style="margin-top:20px;">
+<a href="index.html" style="color:#2563eb;text-decoration:none;">← Back to Home</a>
 </div>
 
 </div>
+
+<!-- SEO CONTENT SECTION -->
+
+<div class="section">
+
+<h3>What is SIP?</h3>
+<p>
+SIP (Systematic Investment Plan) is a disciplined way of investing in mutual funds. 
+You invest a fixed amount monthly and benefit from compounding over time.
+</p>
+
+<h3>How SIP Returns Are Calculated?</h3>
+<p>
+SIP uses a compounding formula based on monthly investment, expected annual return, 
+and total investment duration in months.
+</p>
+
+<h3>SIP Formula</h3>
+<p>
+Future Value = P × [((1+r)^n − 1) / r] × (1+r)
+</p>
+
+<h3>Frequently Asked Questions</h3>
+
+<p><strong>How much will ₹5,000 monthly SIP grow in 10 years?</strong><br>
+It depends on expected return. Use the calculator above to check exact value.</p>
+
+<p><strong>Is SIP better than FD?</strong><br>
+SIP can offer higher returns but comes with market risk.</p>
+
+</div>
+
+<footer>
+© 2026 FinanceHub India | Smart Financial Tools
+</footer>
 
 <script>
 function formatNumber(num){
@@ -137,7 +191,7 @@ document.getElementById("invested").innerText = formatNumber(invested);
 document.getElementById("returns").innerText = formatNumber(returns);
 document.getElementById("total").innerText = formatNumber(futureValue);
 
-document.getElementById("output").style.display="block";
+document.getElementById("result").style.display="block";
 }
 </script>
 
