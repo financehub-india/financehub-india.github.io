@@ -3,110 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FinanceHub India – Free EMI, SIP & FD Calculators</title>
+<title>FinanceHub India – Free EMI Calculator</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#0f172a,#1e293b);
-    color: white;
-    text-align: center;
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
+scroll-behavior:smooth;
 }
 
-header {
-    padding: 20px;
-    font-size: 22px;
-    font-weight: bold;
+header{
+padding:25px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
 }
 
-.section-title {
-    font-size: 20px;
-    margin-bottom: 30px;
+.section-title{
+text-align:center;
+margin-top:10px;
+font-size:18px;
+opacity:0.8;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+max-width:900px;
+margin:40px auto;
+padding:20px;
 }
 
-.card {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: 0.3s;
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+text-align:center;
+transition:0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.card:hover{
+transform:translateY(-5px);
 }
 
-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #2563eb;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
+button{
+margin-top:15px;
+padding:10px 20px;
+background:#2563eb;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+font-size:14px;
 }
 
-button:hover {
-    background: #1d4ed8;
+button:hover{
+background:#1d4ed8;
 }
 
-footer {
-    margin-top: 40px;
-    padding: 15px;
-    background: #020617;
-    font-size: 14px;
+.emi-section{
+padding:80px 20px;
+}
+
+.emi-box{
+max-width:500px;
+margin:auto;
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+.emi-box h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-bottom:12px;
+border-radius:6px;
+border:none;
+}
+
+.result-box{
+margin-top:20px;
+background:#0f172a;
+padding:15px;
+border-radius:8px;
+}
+
+.result-box p{
+margin:8px 0;
+}
+
+footer{
+margin-top:60px;
+padding:15px;
+background:#020617;
+text-align:center;
+font-size:14px;
 }
 </style>
-
 </head>
+
 <body>
 
-<header>
-FinanceHub India
-</header>
-
-<div class="section-title">
-Free Financial Calculators
-</div>
+<header>FinanceHub India</header>
+<div class="section-title">Free Financial Calculators</div>
 
 <div class="container">
 
 <div class="card">
 <h3>EMI Calculator</h3>
-<a href="emi.html"><button>Open</button></a>
+<a href="#emi"><button>Open</button></a>
 </div>
 
 <div class="card">
 <h3>SIP Calculator</h3>
-<a href="sip.html"><button>Open</button></a>
+<button disabled>Coming Soon</button>
 </div>
 
 <div class="card">
 <h3>FD Calculator</h3>
-<a href="fd.html"><button>Open</button></a>
+<button disabled>Coming Soon</button>
 </div>
 
 <div class="card">
 <h3>CAGR Calculator</h3>
-<a href="cagr.html"><button>Open</button></a>
+<button disabled>Coming Soon</button>
 </div>
 
 </div>
+
+<section id="emi" class="emi-section">
+<div class="emi-box">
+
+<h2>EMI Calculator</h2>
+
+<input type="number" id="loan" placeholder="Loan Amount">
+<input type="number" id="rate" placeholder="Interest Rate (%)">
+<input type="number" id="months" placeholder="Tenure (Months)">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<div id="result"></div>
+
+</div>
+</section>
 
 <footer>
 © 2026 FinanceHub India | Smart Financial Tools
 </footer>
+
+<script>
+function calculateEMI(){
+
+let P = parseFloat(document.getElementById("loan").value);
+let annualRate = parseFloat(document.getElementById("rate").value);
+let n = parseFloat(document.getElementById("months").value);
+
+if(!P || !annualRate || !n){
+alert("Please fill all fields");
+return;
+}
+
+let r = annualRate / 12 / 100;
+
+let emi = (P*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+let total = emi * n;
+let interest = total - P;
+
+document.getElementById("result").innerHTML = `
+<div class="result-box">
+<p><strong>Monthly EMI:</strong> ₹ ${emi.toLocaleString('en-IN',{maximumFractionDigits:2})}</p>
+<p><strong>Total Interest:</strong> ₹ ${interest.toLocaleString('en-IN',{maximumFractionDigits:2})}</p>
+<p><strong>Total Amount:</strong> ₹ ${total.toLocaleString('en-IN',{maximumFractionDigits:2})}</p>
+</div>
+`;
+
+}
+</script>
 
 </body>
 </html>
