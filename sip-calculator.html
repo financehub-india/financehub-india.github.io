@@ -12,13 +12,15 @@ font-family:'Segoe UI', Arial, sans-serif;
 background:#f3f4f6;
 }
 
-header{
+/* TOP HEADER */
+.topbar{
 background:white;
 padding:15px 25px;
 box-shadow:0 2px 6px rgba(0,0,0,0.05);
 font-weight:600;
 }
 
+/* MAIN CALCULATOR CARD */
 .container{
 max-width:600px;
 margin:60px auto;
@@ -30,7 +32,7 @@ text-align:center;
 }
 
 h2{
-margin-bottom:10px;
+margin-bottom:5px;
 }
 
 .sub{
@@ -58,7 +60,6 @@ border-radius:8px;
 color:white;
 font-size:15px;
 cursor:pointer;
-transition:0.3s;
 }
 
 button:hover{
@@ -80,16 +81,18 @@ justify-content:space-between;
 margin:8px 0;
 }
 
-.section{
+/* CONTENT SECTION SAME AS EMI */
+.content-section{
 max-width:900px;
 margin:60px auto;
 background:white;
 padding:40px;
 border-radius:14px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
+line-height:1.7;
 }
 
-.section h3{
+.content-section h3{
 margin-top:0;
 }
 
@@ -105,7 +108,7 @@ margin-top:40px;
 
 <body>
 
-<header>FinanceHub India</header>
+<div class="topbar">FinanceHub India</div>
 
 <div class="container">
 
@@ -130,20 +133,19 @@ margin-top:40px;
 
 </div>
 
-<!-- SEO CONTENT SECTION -->
-
-<div class="section">
+<!-- EXACT SAME STYLE CONTENT BOX -->
+<div class="content-section">
 
 <h3>What is SIP?</h3>
 <p>
-SIP (Systematic Investment Plan) is a disciplined way of investing in mutual funds. 
-You invest a fixed amount monthly and benefit from compounding over time.
+SIP (Systematic Investment Plan) is a disciplined method of investing in mutual funds.
+You invest a fixed amount every month and benefit from the power of compounding over time.
 </p>
 
 <h3>How SIP Returns Are Calculated?</h3>
 <p>
-SIP uses a compounding formula based on monthly investment, expected annual return, 
-and total investment duration in months.
+SIP returns are calculated using a compounding formula that considers monthly investment,
+expected annual return rate and total investment duration in months.
 </p>
 
 <h3>SIP Formula</h3>
@@ -154,10 +156,12 @@ Future Value = P × [((1+r)^n − 1) / r] × (1+r)
 <h3>Frequently Asked Questions</h3>
 
 <p><strong>How much will ₹5,000 monthly SIP grow in 10 years?</strong><br>
-It depends on expected return. Use the calculator above to check exact value.</p>
+The final amount depends on expected return rate. Use the calculator above to check exact value instantly.
+</p>
 
 <p><strong>Is SIP better than FD?</strong><br>
-SIP can offer higher returns but comes with market risk.</p>
+SIP can provide higher long-term returns but involves market risk.
+</p>
 
 </div>
 
