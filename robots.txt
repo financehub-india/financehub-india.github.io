@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://financehub-india.github.io/finance-calculator/sitemap.xml
