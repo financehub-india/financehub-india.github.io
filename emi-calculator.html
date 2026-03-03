@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free EMI Calculator India 2026</title>
+<title>Free EMI Calculator India 2026 – Calculate Loan EMI Online</title>
 
-<meta name="description" content="Calculate home loan EMI instantly with our free EMI calculator for India.">
+<meta name="description" content="Calculate home loan EMI, car loan EMI and personal loan EMI instantly with our free EMI calculator for India.">
 
 <style>
 body{
-font-family: Arial;
+font-family:Arial;
 background:#0f172a;
 color:white;
 margin:0;
@@ -19,11 +19,11 @@ text-align:center;
 .container{
 max-width:600px;
 margin:auto;
-padding:30px;
+padding:40px 20px;
 }
 
 input{
-width:90%;
+width:100%;
 padding:12px;
 margin:10px 0;
 border-radius:6px;
@@ -35,6 +35,72 @@ button{
 padding:12px 20px;
 background:#2563eb;
 color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+width:100%;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+.result{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+font-size:18px;
+}
+
+a{
+color:#38bdf8;
+text-decoration:none;
+display:inline-block;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>EMI Calculator</h1>
+
+<input type="number" id="loan" placeholder="Loan Amount (₹)">
+<input type="number" id="rate" placeholder="Interest Rate (%)">
+<input type="number" id="years" placeholder="Loan Tenure (Years)">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<div class="result" id="result"></div>
+
+<a href="index.html">← Back to Home</a>
+
+</div>
+
+<script>
+function calculateEMI(){
+let P=document.getElementById("loan").value;
+let R=document.getElementById("rate").value/1200;
+let N=document.getElementById("years").value*12;
+
+if(P==""||R==""||N==""){
+document.getElementById("result").innerHTML="Please fill all fields";
+return;
+}
+
+let EMI=(P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
+
+document.getElementById("result").innerHTML=
+"Monthly EMI: ₹ " + EMI.toFixed(2);
+}
+</script>
+
+</body>
+</html>color:white;
 border:none;
 border-radius:6px;
 cursor:pointer;
