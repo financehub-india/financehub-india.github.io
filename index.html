@@ -30,14 +30,14 @@ margin-top:6px;
 font-size:15px;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero{
 text-align:center;
-padding:60px 20px 40px;
+padding:60px 20px 20px;
 }
 
 .hero h2{
-font-size:34px;
+font-size:32px;
 margin-bottom:15px;
 }
 
@@ -47,30 +47,6 @@ max-width:600px;
 margin:auto;
 font-size:16px;
 line-height:1.6;
-}
-
-/* STATS */
-.stats{
-display:flex;
-justify-content:center;
-gap:60px;
-margin:40px 0;
-flex-wrap:wrap;
-}
-
-.stat-box{
-text-align:center;
-}
-
-.stat-box h3{
-margin:0;
-font-size:28px;
-color:#2563eb;
-}
-
-.stat-box p{
-margin:5px 0 0;
-color:#6b7280;
 }
 
 /* CARDS */
@@ -121,9 +97,30 @@ background:#cbd5e1;
 cursor:not-allowed;
 }
 
+/* STATS (NOW BELOW CARDS) */
+.stats{
+display:flex;
+justify-content:center;
+gap:60px;
+margin:60px 0;
+flex-wrap:wrap;
+text-align:center;
+}
+
+.stat-box h3{
+margin:0;
+font-size:26px;
+color:#2563eb;
+}
+
+.stat-box p{
+margin:6px 0 0;
+color:#6b7280;
+}
+
 /* FOOTER */
 footer{
-margin-top:80px;
+margin-top:60px;
 padding:25px;
 background:white;
 text-align:center;
@@ -146,21 +143,7 @@ border-top:1px solid #e5e7eb;
 <p>Use our professional financial calculators to plan your loans, investments and savings with accurate results.</p>
 </div>
 
-<div class="stats">
-<div class="stat-box">
-<h3>100% Free</h3>
-<p>No Charges</p>
-</div>
-<div class="stat-box">
-<h3>Instant</h3>
-<p>Fast Calculations</p>
-</div>
-<div class="stat-box">
-<h3>Accurate</h3>
-<p>Reliable Results</p>
-</div>
-</div>
-
+<!-- CARDS -->
 <div class="container">
 
 <div class="card">
@@ -185,6 +168,22 @@ border-top:1px solid #e5e7eb;
 <button disabled>Coming Soon</button>
 </div>
 
+</div>
+
+<!-- STATS NOW BELOW -->
+<div class="stats">
+<div class="stat-box">
+<h3>100% Free</h3>
+<p>No Charges</p>
+</div>
+<div class="stat-box">
+<h3>Instant</h3>
+<p>Fast Calculations</p>
+</div>
+<div class="stat-box">
+<h3>Accurate</h3>
+<p>Reliable Results</p>
+</div>
 </div>
 
 <footer>
