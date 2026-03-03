@@ -10,32 +10,38 @@ margin:0;
 font-family:Arial;
 background:#0f172a;
 color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+width:320px;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
 text-align:center;
 }
 
-.container{
-padding:40px 20px;
-max-width:500px;
-margin:auto;
-}
-
 input{
-padding:12px;
-margin:10px 0;
+padding:10px;
+margin:8px 0;
 width:100%;
 border-radius:6px;
 border:none;
-font-size:16px;
+font-size:14px;
 }
 
 button{
-padding:12px;
+padding:10px;
 width:100%;
 background:#2563eb;
 color:white;
 border:none;
 border-radius:6px;
-font-size:16px;
+font-size:14px;
 cursor:pointer;
 margin-top:10px;
 }
@@ -44,60 +50,39 @@ button:hover{
 background:#1d4ed8;
 }
 
-.result-box{
-background:#1e293b;
-padding:18px;
-border-radius:10px;
+.result{
 margin-top:15px;
-display:flex;
-justify-content:space-between;
-font-size:16px;
+text-align:left;
+font-size:14px;
+}
+
+.result div{
+margin:6px 0;
 }
 
 a{
 color:#38bdf8;
 text-decoration:none;
-display:inline-block;
-margin-top:25px;
+display:block;
+margin-top:15px;
+font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="card">
 
-<h2>EMI Calculator</h2>
+<h3>EMI Calculator</h3>
 
 <input type="number" id="loan" placeholder="Loan Amount">
 <input type="number" id="rate" placeholder="Interest Rate (%)">
-<input type="number" id="months" placeholder="Loan Tenure (Months)">
+<input type="number" id="months" placeholder="Tenure (Months)">
 
 <button onclick="calculateEMI()">Calculate EMI</button>
 
-<div id="results" style="display:none;">
-
-<div class="result-box">
-<span>Monthly EMI</span>
-<span id="emi"></span>
-</div>
-
-<div class="result-box">
-<span>Principal Amount</span>
-<span id="principal"></span>
-</div>
-
-<div class="result-box">
-<span>Total Interest</span>
-<span id="interest"></span>
-</div>
-
-<div class="result-box">
-<span>Total Amount</span>
-<span id="total"></span>
-</div>
-
-</div>
+<div class="result" id="result"></div>
 
 <a href="index.html">← Back to Home</a>
 
@@ -108,21 +93,21 @@ function calculateEMI(){
 
 let P=parseFloat(document.getElementById("loan").value);
 let annualRate=parseFloat(document.getElementById("rate").value);
-let N=parseFloat(document.getElementById("months").value);
+let months=parseFloat(document.getElementById("months").value);
 
 let R=annualRate/12/100;
+let N=months;
 
 let EMI=(P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
 
 let totalPayment=EMI*N;
 let totalInterest=totalPayment-P;
 
-document.getElementById("emi").innerHTML="₹ "+EMI.toFixed(2);
-document.getElementById("principal").innerHTML="₹ "+P.toFixed(2);
-document.getElementById("interest").innerHTML="₹ "+totalInterest.toFixed(2);
-document.getElementById("total").innerHTML="₹ "+totalPayment.toFixed(2);
-
-document.getElementById("results").style.display="block";
+document.getElementById("result").innerHTML=
+"<div><strong>Monthly EMI:</strong> ₹ "+EMI.toFixed(2)+"</div>"+
+"<div><strong>Principal Amount:</strong> ₹ "+P.toFixed(2)+"</div>"+
+"<div><strong>Total Interest:</strong> ₹ "+totalInterest.toFixed(2)+"</div>"+
+"<div><strong>Total Amount:</strong> ₹ "+totalPayment.toFixed(2)+"</div>";
 
 }
 </script>
