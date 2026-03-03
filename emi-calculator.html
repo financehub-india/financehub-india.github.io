@@ -71,6 +71,100 @@ margin-top:25px;
 
 <input type="number" id="loan" placeholder="Loan Amount">
 <input type="number" id="rate" placeholder="Interest Rate (%)">
+<input type="number" id="months" placeholder="Loan Tenure (Months)">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<div id="results" style="display:none;">
+
+<div class="result-box">
+<span>Monthly EMI</span>
+<span id="emi"></span>
+</div>
+
+<div class="result-box">
+<span>Principal Amount</span>
+<span id="principal"></span>
+</div>
+
+<div class="result-box">
+<span>Total Interest</span>
+<span id="interest"></span>
+</div>
+
+<div class="result-box">
+<span>Total Amount</span>
+<span id="total"></span>
+</div>
+
+</div>
+
+<a href="index.html">← Back to Home</a>
+
+</div>
+
+<script>
+function calculateEMI(){
+
+let P=parseFloat(document.getElementById("loan").value);
+let annualRate=parseFloat(document.getElementById("rate").value);
+let N=parseFloat(document.getElementById("months").value);
+
+let R=annualRate/12/100;
+
+let EMI=(P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
+
+let totalPayment=EMI*N;
+let totalInterest=totalPayment-P;
+
+document.getElementById("emi").innerHTML="₹ "+EMI.toFixed(2);
+document.getElementById("principal").innerHTML="₹ "+P.toFixed(2);
+document.getElementById("interest").innerHTML="₹ "+totalInterest.toFixed(2);
+document.getElementById("total").innerHTML="₹ "+totalPayment.toFixed(2);
+
+document.getElementById("results").style.display="block";
+
+}
+</script>
+
+</body>
+</html>border-radius:6px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+.result-box{
+background:#1e293b;
+padding:18px;
+border-radius:10px;
+margin-top:15px;
+display:flex;
+justify-content:space-between;
+font-size:16px;
+}
+
+a{
+color:#38bdf8;
+text-decoration:none;
+display:inline-block;
+margin-top:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>EMI Calculator</h2>
+
+<input type="number" id="loan" placeholder="Loan Amount">
+<input type="number" id="rate" placeholder="Interest Rate (%)">
 <input type="number" id="years" placeholder="Loan Tenure (Years)">
 
 <button onclick="calculateEMI()">Calculate EMI</button>
